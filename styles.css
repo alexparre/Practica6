@@ -1,0 +1,137 @@
+html {
+  scroll-behavior: smooth;
+}
+
+
+[popover]:popover-open {
+  display: block;
+}
+
+.features-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.close-popover {
+  background: none;
+  border: none;
+  color: #1D4ED8;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.show-details {
+  position: relative;
+  anchor-name: popover-anchor;
+}
+
+li {
+  position: relative; /* Asegura el posicionamiento adecuado del popover */
+  overflow: visible; /* Permite que el popover se muestre más allá de los límites del contenedor */
+}
+
+button#anchor_1 {
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s;
+  }
+
+  button#anchor_1:hover {
+    background-color: #e2e4e6;
+  }
+
+
+  [popover] {
+    margin: 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 120px;
+    z-index: 50;
+    position: absolute;
+    text-align: center;
+    border-radius: 8px; /* Suaviza las esquinas */
+    transition: all 0.3s ease; /* Mejora las transiciones */
+  }
+  
+
+
+  #anchor_1 {
+    anchor-name: --menu-anchor;
+  }
+  
+  #popover_1 {
+    position-anchor: --menu-anchor;
+    top: anchor(--menu-anchor bottom); /* Alinea el menú principal debajo del botón */
+    left: anchor(--menu-anchor start); /* Alinea con el inicio del botón */
+  }
+  
+  button[popovertarget="sub_popover_1"] {
+    anchor-name: --sub-anchor;
+
+    border: none;
+    background-color: transparent;
+  }
+  
+  #sub_popover_1 {
+    position-anchor: --sub-anchor;
+    top: anchor(--sub-anchor top); /* Alinea el submenú con la parte superior del botón del submenú */
+    left: calc(anchor(right) + 30px); /* Alinea el submenú al borde derecho del botón del submenú */
+  }
+
+  button[popovertarget="sub_popover_2"] {
+    anchor-name: --sub-anchor1;
+
+    border: none;
+    background-color: transparent;
+  }
+  
+  #sub_popover_2 {
+    position-anchor: --sub-anchor1;
+    top: anchor(--sub-anchor1 top); /* Alinea el submenú con la parte superior del botón del submenú */
+    left: calc(anchor(right) + 30px); /* Alinea el submenú al borde derecho del botón del submenú */
+  }
+
+  button[popovertarget="sub_popover_3"] {
+    anchor-name: --sub-anchor3;
+
+    border: none;
+    background-color: transparent;
+  }
+  
+  #sub_popover_3 {
+    position-anchor: --sub-anchor3;
+    top: anchor(--sub-anchor3 top); /* Alinea el submenú con la parte superior del botón del submenú */
+    left: calc(anchor(right) + 20px); /* Alinea el submenú al borde derecho del botón del submenú */
+  }
+
+  button[popovertarget="details-popover"] {
+    anchor-name: --sub-anchor3;
+    border: 2px;
+    cursor: pointer;
+  }
+  
+  /* Popover inicial */
+  #details-popover {
+    position-anchor: --sub-anchor3;
+    position: absolute;
+    z-index: 5000;
+    top: anchor(--sub-anchor3 top);
+    left: calc(anchor(right) + 6px);
+    visibility: hidden; /* Oculta inicialmente */
+    opacity: 0; /* Totalmente transparente */
+    transition: visibility 0s, opacity 0.3s ease; /* Transición suave */
+  }
+  li, .article {
+    position: relative;
+    overflow: visible;
+  }
+
+  button:hover + #details-popover,
+#details-popover:hover {
+  visibility: visible;
+  opacity: 1;
+}

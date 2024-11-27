@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AG MARKET</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Banner Principal -->
+  <div class="relative min-h-screen bg-cover bg-center" style="background-image: url('imagen1.jpeg');">
+    
+    <!-- Fondo oscuro superpuesto -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    
+    <!-- Contenido central del banner -->
+    <div class="relative flex flex-col items-center justify-center h-full text-center px-6">
+      <div class="flex items-center mt-5">
+        <img src="logo.png" class="h-[95px] w-[115px] mt-2" alt="logo">
+        <h1 class="text-5xl font-extrabold ml-2">AG MARKET</h1>
+      </div>
+
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Conecta, crea, conquista: tu PC ideal te espera <span>🤘</span></h2>
+
+      <p class="text-lg md:text-xl mb-6 max-w-2xl">
+        ¡Descubre el poder de la tecnología al mejor precio! 💻🌟 Hoy es el día para llevarte el ordenador que hará realidad tus proyectos. 🚀 ¿Qué esperas? ¡Ven y encuentra el tuyo!
+      </p>
+      
+
+      <a href="#productos" class="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-blue-700">
+        Ver Ordenadores a la Venta
+      </a>
+      <section id="destacados" class="py-2 mt-8 mb-8">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl font-bold text-center text-white mb-8">Top 3 Destacados <span>⭐</span></h2>
+          <!-- Slider -->
+          <div class="slider-container relative bg-opacity-50   overflow-hidden">
+            <div class="slider-wrapper flex transition-transform duration-500 ease-in-out justify-center bg-white bg-opacity-50" id="slider-wrapper">
+              <!-- Productos se generarán aquí dinámicamente -->
+            </div>
+            <!-- Controles -->
+            <button id="prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 px-4 py-2 bg-gray-700 text-white rounded-full">←</button>
+            <button id="next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 px-4 py-2 bg-gray-700 text-white rounded-full">→</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <nav class="absolute top-0 w-full flex justify-between items-center px-6 py-4">
+
+            <!-- Botón del Popover -->
+            <button id="anchor_1" popovertarget="popover_1" class="px-4 py-2 bg-transparent text-white font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-colors duration-300">
+              ☰ 
+            </button>
+          
+            <!-- Popover -->
+            <ul id="popover_1" popover class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+              
+              <div class="absolute top-[-6px] left-4 w-4 h-4 bg-white border-t border-l border-gray-200 rotate-45"></div>
+          
+              <li class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><button popovertarget="sub_popover_1" >Portátiles ⮞</button>
+
+                <ul  id="sub_popover_1" popover>
+                  <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="windows.html">Windows</a></li>
+                  <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="apple.html">MacBook</a></li>
+                </ul></li>
+
+                <li class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><button popovertarget="sub_popover_3" >Procesadores ⮞</button>
+
+                  <ul  id="sub_popover_3" popover>
+                    <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="i5.html">Intel i5</a></li>
+                    <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="i7.html">Intel i7</a></li>
+                    <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="i9.html">Intel i9</a></li>
+                  </ul></li>
+              <li class="block px-4 py-2 text-gray-800 hover:bg-gray-100"><button popovertarget="sub_popover_2" >Memoria Ram ⮞</button>
+
+                <ul  id="sub_popover_2" popover>
+                  <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="8gbram.html">8 GB</a></li>
+                  <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="16gbram.html">16 GB</a></li>
+                  <li><a class="block px-4 py-2 text-gray-800 hover:bg-gray-100" href="32gbram.html">32 GB</a></li>
+                </ul></li>
+            </ul>
+
+
+      <div class="flex space-x-4 text-lg">
+        <custom-search>
+            <!-- Boton de busqueda -->
+            <button class="dialog-search bg-transparent text-white text-xl hover:scale-110 transition-transform">
+              🔍
+            </button>
+          
+            <!-- Dialogo -->
+            <dialog class="rounded-lg shadow-lg p-6 bg-white max-w-lg w-full">
+              <button class="close-btn text-gray-600 hover:text-gray-900 absolute top-4 right-4 text-2xl">🗙</button>
+              <h1 class="text-2xl font-bold text-gray-800 mb-4">Buscar Portátil</h1>
+              <input
+                type="search"
+                id="site-search"
+                name="q"
+                placeholder="Escribe para buscar..."
+                class="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+          
+              <template>
+                <li class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow ">
+                  <div class="flex flex-col items-center card p-4">
+                    <img
+                      class="object-cover w-full h-32 rounded-t-lg item-image"
+                      src="https://via.placeholder.com/150"
+                    />
+                    <div class="flex flex-col justify-between items-center mt-2">
+                      <h5 class="item-title text-lg font-bold text-gray-800">{value}</h5>
+                      <h5 class="item-price text-lg font-bold text-gray-800">{value}</h5>
+                      <h5 class="item-descripcion text-lg text-gray-800">{value}</h5>
+                    </div>
+                  </div>
+                </li>
+              </template>
+          
+              <ul id="search-results" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4"></ul>
+            </dialog>
+          </custom-search>
+          
+        <a href="#inicio" class="hover:underline">Inicio</a>
+        <a href="#" onclick="openModal()"  class="hover:underline">Contacta con nosotros</a>
+        <button onclick="openCart()" class="hover:underline relative">
+          🛒 <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-[0.6rem] rounded-full w-4 h-4 flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </nav>
+   </div>
+  </div>
+  
+  <!-- Carrito -->
+<dialog id="cart-dialog" class="hidden absolute bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Carrito de Compra</h2>
+    <ul id="cart-items" class="mb-4"></ul>
+    <p class="text-lg font-bold text-gray-800">Total: <span id="cart-total" class="text-blue-600">0.00 €</span></p>
+    <div class="mt-4 flex space-x-16">
+      <button onclick="closeCart()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">
+        Cerrar
+      </button>
+      <button onclick="proceedToCheckout()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Pagar
+      </button>
+    </div>
+  </dialog>
+  <dialog id="purchase-dialog1" class="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+    <p class="text-lg text-gray-800 mb-4">Producto agregado al carrito.</p>
+    <button onclick="cerrarDialog()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Aceptar
+    </button>
+</dialog>
+  <dialog id="purchase-dialog" class="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">PRODUCTO COMPRADO</h2>
+    <p class="text-lg text-gray-800 mb-4">¡Gracias por tu compra!</p>
+    <button onclick="closePurchaseDialog()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+        Aceptar
+    </button>
+</dialog>
+  <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg items-center justify-center shadow-lg max-w-md w-full overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b">
+        <h3 class="text-2xl font-bold text-gray-800">Nuestro contacto</h3>
+        <button onclick="closeModal()"  class="text-gray-500 hover:text-gray-800 transition">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="px-6 py-4">
+        <ul >
+          <li class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600 mr-3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+            
+            <h3 class="font-bold text-gray-800">AG MARKET S.L</h3>
+          </li>
+          <li class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600 mr-3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+            </svg>
+            
+            <h3 class="text-gray-800">Email: agmarket@gmail.com</h3>
+          </li>
+        </li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-600 mr-3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+          </svg>
+          
+          <h3 class="text-gray-800">Telefono: 91 655 11 00</h3>
+        </li>
+          <li class="flex items-center">
+            <svg class="w-6 h-6 text-gray-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016 3c-2.28 0-4.12 1.85-4.12 4.13 0 .33.04.65.1.96A12.94 12.94 0 013 4.1s-4 9 5 13a13.07 13.07 0 01-8 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+            <h3 class="text-gray-800">Twitter: @agmarket</h3>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-6 h-6 text-gray-600 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
+              <g>
+                <path d="M505,257c0,34.8-0.7,69.7,0.2,104.5c1.5,61.6-37.2,109.2-86.5,130.4c-19.8,8.5-40.6,13-62.1,13c-67.3,0.1-134.7,1-202-0.3 c-50.7-1-92.4-22.2-122.3-64c-15.7-22-23.2-47-23.2-74.1c0-71.7,0-143.3,0-215c0-58.5,28.5-99.4,79.1-126C110.2,14,134.1,9.1,159,9 c65.3,0,130.7-0.4,196,0.2c50.7,0.4,93,19.8,124.2,60.6c17.4,22.8,25.8,49,25.8,77.8C505,184,505,220.5,505,257z M46,257 c0,36.7,0,73.3,0,110c0,16.4,3.8,31.8,12.3,45.7c22.3,36.5,56,54.3,97.8,55c67.1,1,134.3,0.4,201.5,0.2c16.5,0,32.5-3.4,47.4-10.5 c40.6-19.4,63.3-50.3,63.1-96.7c-0.4-71-0.1-142-0.1-213c0-20.1-5.7-38.5-17.6-54.7c-23-31.1-54.8-46.4-92.8-46.8 c-67-0.8-134-0.3-201-0.2c-14.3,0-28.1,2.9-41.5,7.9c-36.8,13.7-71,48.4-69.4,99.5C46.9,188,46,222.5,46,257z" />
+                <path d="M257.6,363c-64.5,0-116.5-51.4-116.6-115.4c-0.1-63,52.3-114.6,116.4-114.6c64.3-0.1,116.5,51.4,116.6,114.9 C374,311.3,321.9,362.9,257.6,363z M257.6,326c43.9,0,79.5-35.1,79.4-78.3c-0.1-42.8-35.7-77.8-79.4-77.8 c-43.9,0-79.7,34.9-79.7,78C178,291.1,213.7,326.1,257.6,326z" />
+                <path d="M387.5,98c13.5,0,24.5,11.5,24.5,25.6c-0.1,14.1-11.2,25.5-24.7,25.4c-13.3-0.1-24.2-11.5-24.2-25.3 C363,109.6,374,98,387.5,98z" />
+              </g>
+            </svg>
+            <h3 class="text-gray-800">Instagram: @agmarket</h3>
+          </li>
+        </ul>
+      </div>
+      <div class="px-6 py-4 border-t text-right">
+        <button onclick="closeModal()" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección del Grid de Productos -->
+  <section id="productos" class="bg-white py-12">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-gray-900 mb-8">Todos los ordenadores a la venta</h2>
+      <div class="flex space-x-4 mb-10">
+        <button id="sort-by-price" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700">
+          Ver más baratos
+        </button>
+        <button id="sort-by-pricedesc" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700">
+           Ver más caros
+          </button>
+        <button id="sort-by-rating" class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-green-700">
+            Mejor Valorados ⭐
+        </button>
+      </div>
+      <news-viewer>
+        
+      </news-viewer>
+    </div>
+  </section>
+
+  <!-- Template de Producto -->
+  <template id="article-template">
+    <div class="article bg-white rounded-lg overflow-hidden hover:shadow-lg transition duration-300 cursor-pointer p-4 relative">
+      <!-- Imagen del producto -->
+      <img class="w-full h-48 object-contain mb-4" src="" alt="Producto">
+  
+      <!-- Contenido del producto -->
+      <div class="text-center">
+        <h3 class="title text-2xl font-bold mb-2 text-gray-900"></h3>
+        <p class="short-description text-sm text-gray-600 mb-4"></p>
+        <p class="date text-sm text-gray-600 mb-4"></p>
+        <p class="price text-lg font-bold text-blue-600"></p>
+        <p class="rating text-lg text-gray-600 mb-10" ></p>
+
+      </div>
+        <li class="block px-4 py-2  text-gray-800 relative mb-16">
+          <button 
+            class="popover-trigger px-4 py-2 rounded-lg hover:bg-blue-600" 
+            popovertarget="details-popover" >
+
+            Ver más Características ⮞
+          </button>
+        
+          <ul id="details-popover" class="">
+            <ul class="">
+         
+            </ul>
+          </ul>
+        </li>
+      </div>
+  
+  </template>
+  <section id="stats" class="py-12 bg-[#1E3A6A] from-gray-900 via-gray-800 to-gray-900 text-white">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+      <div class="transform hover:scale-105 transition-transform duration-300">
+        <h3 class="text-6xl font-extrabold mb-2">10,000+</h3>
+        <p class="text-lg font-medium">Productos Vendidos</p>
+      </div>
+ 
+     <div class="transform hover:scale-105 transition-transform duration-300">
+        <h3 class="text-6xl font-extrabold mb-2">5,000+</h3>
+        <p class="text-lg font-medium">Usuarios Registrados</p>
+      </div>
+      
+
+      <div class="transform hover:scale-105 transition-transform duration-300">
+        <h3 class="text-6xl font-extrabold mb-2">50+</h3>
+        <p class="text-lg font-medium">Marcas Asociadas</p>
+      </div>
+      
+      <div class="transform hover:scale-105 transition-transform duration-300">
+        <h3 class="text-6xl font-extrabold mb-2">+10</h3>
+        <p class="text-lg font-medium">Años de Experiencia</p>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section id="contact" class="bg-yellow-400 py-20">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+  
+        <div class="text-left">
+          <h2 class="text-4xl font-bold text-gray-800 mb-6">¿Tienes alguna duda o necesitas más información?</h2>
+          <p class="text-gray-700 text-lg mb-2">Hablemos y llevemos tus ideas al siguiente nivel</p>
+          <p class="text-gray-700 text-lg mb-2">Descubre cómo podemos ayudarte a crecer.</p>
+          <p class="text-gray-700 text-lg mb-2">Hacemos ofertas para empresas o centros</p>
+          <p class="text-gray-700 font-bold text-2xl mb-8">¡Ponte ya en contacto!</p>
+        </div>
+  
+        <div class="flex justify-center">
+          <form id="contactForm" class="bg-white text-gray-700 shadow-lg rounded-lg max-w-2xl px-12 py-8">
+            <label for="name" class="block text-gray-700 font-medium mb-4 text-center text-2xl">Formulario de Contacto</label>
+  
+            <div class="mb-6">
+              <input type="text" id="name" name="name" placeholder="Nombre" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+            </div>
+  
+            <div class="mb-6">
+              <input type="text" id="apellido" name="apellido" placeholder="Apellido" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+            </div>
+  
+            <div class="mb-6">
+              <input type="email" id="email" name="email" placeholder="Email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+            </div>
+  
+            <div class="flex justify-center">
+              <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-[#1E3A6A] text-gray-400 py-6">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between">
+      <p>&copy; 2024 Alejandro. Todos los derechos reservados.</p>
+      <div class="space-x-4">
+        <a href="#" class="hover:text-white transition">Privacidad</a>
+        <a href="#" class="hover:text-white transition">Términos</a>
+        <a href="#"  onclick="openModal()" class="hover:text-white transition">Contacto</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+  
+  <script>
+  </script>
+</body>
+</html>
